@@ -168,4 +168,6 @@ if __name__ == '__main__':
     ll.print()
     ll.remove_at_index(3)
     ll.print()
+    ll.remove_at_index(4)
+    ll.print()
     
