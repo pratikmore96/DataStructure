@@ -13,26 +13,25 @@ class hashMap:
     def __setitem__(self, key, value):
         hash = self.gethash(key)
         found = False
-        # if self.hashTable[hash] == []:
-        #     self.hashTable[hash].append((key,value))
-        # else:
         for idx, element in enumerate(self.hashTable[hash]):
             if len(element) == 2 and element[0] == key:
                 found = True
                 self.hashTable[hash][idx] = (key,value)
         if not found:
             self.hashTable[hash].append((key,value))
-        # self.hashTable[hash] = value
-        # print (self.hashTable)
-        return
 
     def __getitem__(self, key):
         hash = self.gethash(key)
         for element in self.hashTable[hash]:
             if element[0] == key:
                 return element[1]
-        print ("No such key in the table")
-        return
+
+    def __delitem__(self, Key):
+        print('entered')
+        hash = self.gethash(Key)
+        for itr, element in enumerate(self.hashTable[hash]):
+            if element[0] == Key:
+                del self.hashTable[hash][itr]
     
     def print(self):
         for ele in self.hashTable:
@@ -54,4 +53,6 @@ if __name__ == '__main__':
     HM['sad']
     print(HM['akshay'])
 
+    HM.print()
+    del HM['pratik']
     HM.print()
